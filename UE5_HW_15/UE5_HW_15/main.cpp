@@ -15,7 +15,7 @@ struct Character {
 int strongestCharId(const vector<Character>& characters) {
 	Character strongestChar = characters[0];
 
-	for (Character hero: characters) {
+	for (const Character& hero: characters) {
 		if (strongestChar.meleeAttack + strongestChar.rangedAttack < hero.meleeAttack + hero.rangedAttack) {
 			strongestChar = hero;
 		}
@@ -30,7 +30,7 @@ vector<pair<charClass, Character>> strongestCharByClass(const vector<Character>&
 	charClass classes[4] = { warrior, mage, healer, vampire };
 	for (int i = 0; i < 4; i++) {
 		Character strongestInClass {0, 0, 0, classes[i]};
-		for (Character ch: characters) {
+		for (const Character& ch: characters) {
 			if (ch.cl == classes[i]) {
 				if (strongestInClass.meleeAttack + strongestInClass.rangedAttack < ch.meleeAttack + ch.rangedAttack) {
 					strongestInClass = ch;
@@ -55,7 +55,7 @@ int main() {
 
 	vector<pair<charClass, Character>> champChars = strongestCharByClass(heroes);
 
-	for (pair<charClass, Character> chrt: champChars) {
+	for (const pair<charClass, Character>& chrt: champChars) {
 		string charClass;
 
 		if (chrt.first == 0) charClass = "warrior";
