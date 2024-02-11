@@ -11,7 +11,7 @@ struct Player {
 	float strength = 10;
 };
 
-float clanStrength(vector<Player> clanMembers) {
+float clanStrength(const vector<Player>& clanMembers) {
 	float totalStrength = 0;
 	
 	for (Player pl: clanMembers) {
@@ -55,7 +55,7 @@ map<string, vector<Player>> initializeClansAndPlayers() {
 	return clans;
 }
 
-int GetPlayerCount(const string& ClanName, map<string, vector<Player>> clans) {
+int GetPlayerCount(const string& ClanName, const map<string, vector<Player>>& clans) {
 	int clanMembersQuantity = 0;
 
 	try {
@@ -69,7 +69,7 @@ int GetPlayerCount(const string& ClanName, map<string, vector<Player>> clans) {
 	return clanMembersQuantity;
 }
 
-int ClanFight(const string& firstClanName, const string& secondClanName, map<string, vector<Player>> clans) {
+int ClanFight(const string& firstClanName, const string& secondClanName, const map<string, vector<Player>>& clans) {
 	float firstClanStrength = 0;
 	float secondClanStrength = 0;
 
@@ -94,7 +94,7 @@ int ClanFight(const string& firstClanName, const string& secondClanName, map<str
 	if (firstClanStrength == secondClanStrength) return 0;
 }
 
-void clansParams(map<string, vector<Player>> clans) {
+void clansParams(const map<string, vector<Player>>& clans) {
 	for (auto it = clans.cbegin(); it != clans.cend(); ++it) {
 		cout << "\n\nClan name: '" << it->first << "'";
 		for (auto itk = it->second.begin(); itk != it->second.end(); ++itk) {
