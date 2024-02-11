@@ -6,7 +6,7 @@ using namespace std;
 
 enum Actions { damage, heal };
 
-float maxDamage(vector<float> v) {
+float maxDamage(const vector<float>& v) {
 	float maxDam = v[0];
 
 	for (float num: v) {
@@ -25,7 +25,7 @@ float maxDamage(vector<float> v) {
 	return maxDam;
 }
 
-float minDamage(vector<float> v) {
+float minDamage(const vector<float>& v) {
 	vector<float> damage;
 
 	for (float num : v) {
@@ -52,7 +52,7 @@ float minDamage(vector<float> v) {
 	return minDam;
 }
 
-vector<int> maxDamageArrayPositions(vector<float> v) {
+vector<int> maxDamageArrayPositions(const vector<float>& v) {
 	float maxDam = maxDamage(v);
 	vector<int> positions;
 
@@ -65,7 +65,7 @@ vector<int> maxDamageArrayPositions(vector<float> v) {
 	return positions;
 }
 
-vector<int> minDamageArrayPositions(vector<float> v) {
+vector<int> minDamageArrayPositions(const vector<float>& v) {
 	float minDam = minDamage(v);
 	vector<int> positions;
 
@@ -78,7 +78,7 @@ vector<int> minDamageArrayPositions(vector<float> v) {
 	return positions;
 }
 
-vector<int> healingArrayPositions(vector<float> v) {
+vector<int> healingArrayPositions(const vector<float>& v) {
 	vector<int> positions;
 
 	for (int i = 0; i < v.size(); i++) {
@@ -90,7 +90,7 @@ vector<int> healingArrayPositions(vector<float> v) {
 	return positions;
 }
 
-float totalHealthChange(vector<float> v, Actions act) {
+float totalHealthChange(const vector<float>& v, Actions act) {
 	float hitpointsChange = 0;
 
 	if (act == Actions::damage) {
@@ -113,7 +113,7 @@ float totalHealthChange(vector<float> v, Actions act) {
 	return hitpointsChange;
 }
 
-bool doneNothing(vector<float> v) {
+bool doneNothing(const vector<float>& v) {
 	for (float num: v) {
 		if (num == 0) {
 			return true;
