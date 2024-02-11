@@ -12,7 +12,7 @@ struct Character {
 	charClass cl;
 };
 
-int strongestCharId(vector<Character> characters) {
+int strongestCharId(const vector<Character>& characters) {
 	Character strongestChar = characters[0];
 
 	for (Character hero: characters) {
@@ -24,7 +24,7 @@ int strongestCharId(vector<Character> characters) {
 	return strongestChar.id;
 }
 
-vector<pair<charClass, Character>> strongestCharByClass(vector<Character> characters) {
+vector<pair<charClass, Character>> strongestCharByClass(const vector<Character>& characters) {
 	vector<pair<charClass, Character>> champChars;
 
 	charClass classes[4] = { warrior, mage, healer, vampire };
@@ -55,15 +55,15 @@ int main() {
 
 	vector<pair<charClass, Character>> champChars = strongestCharByClass(heroes);
 
-	for (pair<charClass, Character> ch: champChars) {
+	for (pair<charClass, Character> chrt: champChars) {
 		string charClass;
 
-		if (ch.first == 0) charClass = "warrior";
-		if (ch.first == 1) charClass = "mage";
-		if (ch.first == 2) charClass = "healer";
-		if (ch.first == 3) { charClass = "vampire"; }
+		if (chrt.first == 0) charClass = "warrior";
+		if (chrt.first == 1) charClass = "mage";
+		if (chrt.first == 2) charClass = "healer";
+		if (chrt.first == 3) { charClass = "vampire"; }
 
-		cout << "Strongest " << charClass << " id is " << ch.second.id << endl;
+		cout << "Strongest " << charClass << " id is " << chrt.second.id << endl;
 	}
 
 
